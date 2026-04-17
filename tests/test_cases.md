@@ -1,15 +1,24 @@
-# Test Cases – FIT4012 Lab 2
+### Rail Fence Cipher Test Cases
 
-## Caesar Cipher
-- [ ] Encrypt `I LOVE YOU` với key `3`
-- [ ] Encrypt `hello world` với key `5`
-- [ ] Decrypt `LORYH BRX` với key `3`
+1. **Encrypt với 3 rails**  
+   Plaintext: I LOVE YOU  
+   Ciphertext: IOV LE OYU   (hoặc kết quả thực tế của bạn)
 
-## Rail Fence Cipher
-- [ ] Encrypt `I LOVE YOU` với `2` rails
-- [ ] Encrypt `I LOVE YOU` với `4` rails
-- [ ] Decrypt một bản mã Rail Fence hợp lệ
+2. **Encrypt với 2 rails**  
+   Plaintext: HELLO WORLD  
+   Ciphertext: ...
 
-## Validation / File input
-- [ ] Kiểm tra đầu vào không hợp lệ
-- [ ] Đọc thông điệp từ `data/input.txt`
+3. **Encrypt với 4 rails**  
+   Plaintext: RAIL FENCE CIPHER  
+   Ciphertext: ...
+
+4. **Decrypt**  
+   Ciphertext: (từ test 1)  
+   Plaintext: I LOVE YOU
+
+5. **Input không hợp lệ**  
+   Rails = 1 → trả về nguyên bản text
+
+6. **Đọc từ file input.txt**  
+   Nội dung file: ...  
+   Encrypt với 3 rails: ...
