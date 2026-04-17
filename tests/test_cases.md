@@ -1,10 +1,10 @@
-### Test Cases cho Lab 2 - Classical Ciphers
+# Test Cases - Lab 2 Classical Ciphers
 
-1. **Caesar Encrypt**: "I LOVE YOU" với key=3 → "L ORYH BRX"
-2. **Caesar Decrypt**: Bản mã trên với key=3 → "I LOVE YOU"
-3. **Caesar giữ dấu cách**: "Hello World 123!" với key=5
-4. **Rail Fence Encrypt 3 rails**: "I LOVE YOU" → (kết quả của bạn)
-5. **Rail Fence Encrypt 2 rails**: "HELLO WORLD"
-6. **Rail Fence Decrypt**: Bản mã trên với 3 rails → "I LOVE YOU"
-7. **Rail Fence input không hợp lệ** (rails=1)
-8. **Rail Fence đọc từ file input.txt**
+- [x] Caesar Encrypt: "I LOVE YOU" với key = 3
+- [x] Caesar Decrypt: Bản mã trên với key = 3
+- [x] Caesar giữ dấu cách và chữ hoa/thường: "Hello World 2026!" với key = 5
+- [x] Rail Fence Encrypt với 3 rails: "I LOVE YOU"
+- [x] Rail Fence Encrypt với 2 rails: "HELLO WORLD"
+- [x] Rail Fence Decrypt: Bản mã 3 rails về bản gốc
+- [x] Rail Fence input không hợp lệ (rails = 1)
+- [x] Rail Fence đọc và mã hóa từ file data/input.txt
