@@ -4,44 +4,33 @@
 #include <string>
 using namespace std;
 
-// ================== RAIL FENCE ENCRYPT ==================
+// Rail Fence Encrypt (giữ dấu cách)
 string railFenceEncrypt(string text, int rails) {
-    // Q7: Kiểm tra input không hợp lệ
     if (rails < 2 || text.empty()) {
         return text;
     }
-
     vector<string> fence(rails, "");
-    int row = 0;
-    int direction = 1;  // 1: xuống, -1: lên
-
-    // Viết theo zigzag, giữ nguyên dấu cách
+    int row = 0, direction = 1;
     for (char ch : text) {
         fence[row] += ch;
         row += direction;
         if (row == rails - 1) direction = -1;
         else if (row == 0) direction = 1;
     }
-
-    // Đọc theo từng hàng
     string result = "";
-    for (string r : fence) {
-        result += r;
-    }
+    for (string r : fence) result += r;
     return result;
 }
 
-// ================== RAIL FENCE DECRYPT ==================
+// Rail Fence Decrypt - hàm bị thiếu
 string railFenceDecrypt(string cipher, int rails) {
     if (rails < 2 || cipher.empty()) {
         return cipher;
     }
-
     int n = cipher.length();
     vector<int> positions(n);
-    vector<string> fence(rails, string(n, '*'));  // placeholder
+    vector<string> fence(rails, string(n, '*'));
 
-    // Bước 1: Xác định vị trí zigzag
     int row = 0, dir = 1;
     for (int i = 0; i < n; i++) {
         positions[i] = row;
@@ -50,7 +39,6 @@ string railFenceDecrypt(string cipher, int rails) {
         else if (row == 0) dir = 1;
     }
 
-    // Bước 2: Điền ciphertext vào đúng vị trí theo hàng
     int idx = 0;
     for (int r = 0; r < rails; r++) {
         for (int i = 0; i < n; i++) {
@@ -60,7 +48,6 @@ string railFenceDecrypt(string cipher, int rails) {
         }
     }
 
-    // Bước 3: Đọc theo zigzag để ra plaintext
     string result = "";
     row = 0; dir = 1;
     for (int i = 0; i < n; i++) {
@@ -72,38 +59,38 @@ string railFenceDecrypt(string cipher, int rails) {
     return result;
 }
 
-// ================== MAIN - TEST CÁC YÊU CẦU ==================
+// Hàm đọc từ file cho Q8 - hàm bị thiếu
+string read_message_from_file() {
+    ifstream infile("data/input.txt");
+    string text = "";
+    if (infile.is_open()) {
+        getline(infile, text);
+        infile.close();
+    }
+    return text;
+}
+
 int main() {
-    cout << "=== RAIL FENCE CIPHER TEST ===" << endl << endl;
+    cout << "=== RAIL FENCE CIPHER ===" << endl << endl;
 
     string text = "I LOVE YOU";
     int rails = 3;
 
-    cout << "Original text     : " << text << endl;
+    cout << "Original: " << text << endl;
+    string enc = railFenceEncrypt(text, rails);
+    cout << "Encrypted (" << rails << " rails): " << enc << endl;
+    cout << "Decrypted: " << railFenceDecrypt(enc, rails) << endl << endl;
 
-    string encrypted = railFenceEncrypt(text, rails);
-    cout << "Encrypted (" << rails << " rails): " << encrypted << endl;
+    // Test cases khác
+    cout << "Rails=2: " << railFenceEncrypt("HELLO WORLD", 2) << endl;
+    cout << "Rails=4: " << railFenceEncrypt("RAIL FENCE", 4) << endl;
+    cout << "Invalid rails=1: " << railFenceEncrypt("TEST", 1) << endl << endl;
 
-    string decrypted = railFenceDecrypt(encrypted, rails);
-    cout << "Decrypted         : " << decrypted << endl << endl;
-
-    // Test thêm các trường hợp
-    cout << "=== Test cases khác ===" << endl;
-    cout << "Rails = 2 : " << railFenceEncrypt("HELLO WORLD", 2) << endl;
-    cout << "Rails = 4 : " << railFenceEncrypt("RAIL FENCE CIPHER", 4) << endl;
-    cout << "Rails = 1 (invalid) : " << railFenceEncrypt("TEST", 1) << endl;
-    cout << "Empty text : " << railFenceEncrypt("", 3) << endl << endl;
-
-    // Đọc từ file data/input.txt (Q8)
-    ifstream infile("data/input.txt");
-    if (infile.is_open()) {
-        string fileText;
-        getline(infile, fileText);
-        infile.close();
-        cout << "Từ file input.txt     : " << fileText << endl;
-        cout << "Encrypt (3 rails)     : " << railFenceEncrypt(fileText, 3) << endl;
-    } else {
-        cout << "Khong mo duoc file data/input.txt" << endl;
+    // Đọc từ file
+    string fileMsg = read_message_from_file();
+    cout << "From input.txt: " << fileMsg << endl;
+    if (!fileMsg.empty()) {
+        cout << "Encrypt file (3 rails): " << railFenceEncrypt(fileMsg, 3) << endl;
     }
 
     return 0;
