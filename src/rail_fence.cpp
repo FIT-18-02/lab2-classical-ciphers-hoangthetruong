@@ -59,7 +59,7 @@ string rail_fence_decrypt(string cipher, int rails) {
     return result;
 }
 
-// Hàm đọc file cho Q8 - TÊN HÀM PHẢI ĐÚNG: read_message_from_file
+// Đọc file cho Q8 - TÊN HÀM PHẢI ĐÚNG: read_message_from_file
 string read_message_from_file() {
     ifstream infile("data/input.txt");
     string text = "";
@@ -81,14 +81,14 @@ int main() {
     cout << "Encrypted: " << enc << endl;
     cout << "Decrypted: " << rail_fence_decrypt(enc, rails) << endl << endl;
 
-    cout << "Test 2 rails: " << railFenceEncrypt("HELLO WORLD", 2) << endl;
-    cout << "Test 4 rails: " << railFenceEncrypt("RAIL FENCE", 4) << endl;
-    cout << "Invalid (rails=1): " << railFenceEncrypt("TEST", 1) << endl << endl;
+    cout << "Test 2 rails : " << railFenceEncrypt("HELLO WORLD", 2) << endl;
+    cout << "Test 4 rails : " << railFenceEncrypt("RAIL FENCE", 4) << endl;
+    cout << "Invalid rails=1 : " << railFenceEncrypt("TEST", 1) << endl << endl;
 
     string fileMsg = read_message_from_file();
-    cout << "From input.txt: " << fileMsg << endl;
+    cout << "From input.txt : " << fileMsg << endl;
     if (!fileMsg.empty()) {
-        cout << "Encrypt from file: " << railFenceEncrypt(fileMsg, 3) << endl;
+        cout << "Encrypt from file : " << railFenceEncrypt(fileMsg, 3) << endl;
     }
 
     return 0;
