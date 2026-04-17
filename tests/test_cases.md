@@ -1,24 +1,10 @@
-### Rail Fence Cipher Test Cases
+### Test Cases cho Lab 2 - Classical Ciphers
 
-1. **Encrypt với 3 rails**  
-   Plaintext: I LOVE YOU  
-   Ciphertext: IOV LE OYU   (hoặc kết quả thực tế của bạn)
-
-2. **Encrypt với 2 rails**  
-   Plaintext: HELLO WORLD  
-   Ciphertext: ...
-
-3. **Encrypt với 4 rails**  
-   Plaintext: RAIL FENCE CIPHER  
-   Ciphertext: ...
-
-4. **Decrypt**  
-   Ciphertext: (từ test 1)  
-   Plaintext: I LOVE YOU
-
-5. **Input không hợp lệ**  
-   Rails = 1 → trả về nguyên bản text
-
-6. **Đọc từ file input.txt**  
-   Nội dung file: ...  
-   Encrypt với 3 rails: ...
+1. **Caesar Encrypt**: "I LOVE YOU" với key=3 → "L ORYH BRX"
+2. **Caesar Decrypt**: Bản mã trên với key=3 → "I LOVE YOU"
+3. **Caesar giữ dấu cách**: "Hello World 123!" với key=5
+4. **Rail Fence Encrypt 3 rails**: "I LOVE YOU" → (kết quả của bạn)
+5. **Rail Fence Encrypt 2 rails**: "HELLO WORLD"
+6. **Rail Fence Decrypt**: Bản mã trên với 3 rails → "I LOVE YOU"
+7. **Rail Fence input không hợp lệ** (rails=1)
+8. **Rail Fence đọc từ file input.txt**
