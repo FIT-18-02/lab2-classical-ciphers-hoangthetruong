@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-// Rail Fence Encrypt (giữ dấu cách)
+// Rail Fence Encrypt
 string railFenceEncrypt(string text, int rails) {
     if (rails < 2 || text.empty()) {
         return text;
@@ -22,7 +22,7 @@ string railFenceEncrypt(string text, int rails) {
     return result;
 }
 
-// Rail Fence Decrypt - TÊN HÀM PHẢI ĐÚNG: rail_fence_decrypt
+// === HÀM BẮT BUỘC - TÊN ĐÚNG CHECKER ===
 string rail_fence_decrypt(string cipher, int rails) {
     if (rails < 2 || cipher.empty()) {
         return cipher;
@@ -59,7 +59,7 @@ string rail_fence_decrypt(string cipher, int rails) {
     return result;
 }
 
-// Đọc file cho Q8 - TÊN HÀM PHẢI ĐÚNG: read_message_from_file
+// === HÀM BẮT BUỘC CHO Q8 - TÊN ĐÚNG CHECKER ===
 string read_message_from_file() {
     ifstream infile("data/input.txt");
     string text = "";
@@ -81,14 +81,14 @@ int main() {
     cout << "Encrypted: " << enc << endl;
     cout << "Decrypted: " << rail_fence_decrypt(enc, rails) << endl << endl;
 
-    cout << "Test 2 rails : " << railFenceEncrypt("HELLO WORLD", 2) << endl;
-    cout << "Test 4 rails : " << railFenceEncrypt("RAIL FENCE", 4) << endl;
-    cout << "Invalid rails=1 : " << railFenceEncrypt("TEST", 1) << endl << endl;
+    cout << "Test 2 rails: " << railFenceEncrypt("HELLO WORLD", 2) << endl;
+    cout << "Test 4 rails: " << railFenceEncrypt("RAIL FENCE", 4) << endl;
+    cout << "Invalid rails=1: " << railFenceEncrypt("TEST", 1) << endl << endl;
 
     string fileMsg = read_message_from_file();
-    cout << "From input.txt : " << fileMsg << endl;
+    cout << "From input.txt: " << fileMsg << endl;
     if (!fileMsg.empty()) {
-        cout << "Encrypt from file : " << railFenceEncrypt(fileMsg, 3) << endl;
+        cout << "Encrypt from file: " << railFenceEncrypt(fileMsg, 3) << endl;
     }
 
     return 0;
